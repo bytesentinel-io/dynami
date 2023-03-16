@@ -7,7 +7,7 @@ SRC_DIR = "src"
 
 setup(
     name="dynami",
-    version="1.0.1",
+    version="1.0.2",
     author="ByteSentinel",
     author_email="info@bytesentinel.io",
     description="Module to dynamically update DNS records from multiple services like Hetzner, Amazon, Microsoft... ",
@@ -19,7 +19,10 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.7',
+    python_requires=">=3.7",
     package_dir={"": SRC_DIR},
-    packages=find_packages(SRC_DIR)
+    packages=find_packages(SRC_DIR),
+    install_requires=[
+        "enumy==1.0.2",
+    ]
 )
