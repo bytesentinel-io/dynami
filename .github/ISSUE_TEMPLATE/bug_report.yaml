@@ -1,0 +1,74 @@
+name: 🐞 Bug report
+description: Template for bug reports
+title: '[Bug]: '
+labels:
+  - bug
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe your problem as precisely as possible.
+      render: Describe your problem as precisely as possible.
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the issue
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: Description of what you expected to happen
+    validations:
+      required: true
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: Description of what actually happened
+    validations:
+      required: true
+  - type: input
+    id: python-version
+    attributes:
+      label: Python Version
+      description: Which Python version is used?
+      placeholder: '3.11'
+    validations:
+      required: true
+  - type: input
+    id: pip-version
+    attributes:
+      label: Pip Version
+      description: Which version of pip is used?
+  - type: dropdown
+    id: version
+    attributes:
+      label: Dynami Version
+      multiple: true
+      options:
+        - v1.0.0
+        - v1.0.1
+        - v1.0.2
+        - v1.0.3
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: >-
+            I confirm that I have already read all wiki entries of the
+            repository.
+          required: true
+  - type: markdown
+    attributes:
+      value: >-
+        This template was generated with [Issue Forms
+        Creator](https://issue-forms-creator.netlify.app)
