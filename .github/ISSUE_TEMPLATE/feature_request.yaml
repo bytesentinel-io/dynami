@@ -1,0 +1,35 @@
+name: 🚧 Feature Request
+description: Template for bug reports
+title: '[Feature] '
+labels:
+  - feature
+  - request
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A brief description of the feature you are requesting
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why do you think this feature is important? What problem does it solve?
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: >-
+        What is your proposed solution to the problem? Please be as specific as
+        possible?
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: >-
+        Are there any other details or context that you think might be relevant
+        to this feature request?
+    validations:
+      required: true
