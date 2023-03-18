@@ -23,6 +23,7 @@ setup(
     package_dir={"": SRC_DIR},
     packages=find_packages(SRC_DIR),
     install_requires=[
-        "enumy==1.0.2",
+        "enumy>=1.0.2",
+        "google-cloud-dns>=0.34.1"
     ]
 )
