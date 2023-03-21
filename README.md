@@ -3,7 +3,7 @@
 </div>
 
 <h1 align="center">
-  pyFileWatcher
+  dynami
 </h1>
 
 <div align="center">
