@@ -1,4 +1,18 @@
-# Dynami - DynDNS Update Client
+<div align="center">
+    <img src="./.assets/bytesentinel.png" width="250px" style="margin-left: 10px" />
+</div>
+
+<h1 align="center">
+  pyFileWatcher
+</h1>
+
+<div align="center">
+    <img src="https://img.shields.io/github/downloads/bytesentinel-io/dynami/total?style=for-the-badge" />
+    <img src="https://img.shields.io/github/last-commit/bytesentinel-io/dynami?color=%231BCBF2&style=for-the-badge" />
+    <img src="https://img.shields.io/github/issues/bytesentinel-io/dynami?style=for-the-badge" />
+</div>
+
+<br />
 
 `dynami` is a Python package that provides a simple interface for managing DNS records through various providers. Currently, it supports Hetzner as a DNS provider, with more providers to come in future updates.
 
