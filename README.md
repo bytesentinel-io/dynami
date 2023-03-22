@@ -16,6 +16,8 @@
 
 `dynami` is a Python package that provides a simple interface for managing DNS records through various providers. Currently, it supports Hetzner as a DNS provider, with more providers to come in future updates.
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z8JPE9P)
+
 ## Installation
 
 You can install dynami via pip:
