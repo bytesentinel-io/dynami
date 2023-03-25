@@ -5,9 +5,9 @@ from pathlib import Path
 
 # Create a tool to use dynami as a command line tool
 # ConfigControl is a class to manage the config file
-from provider import *
-from ext.client import Client
-from ext.utils import PublicIP
+from .provider import *
+from .ext.client import Client
+from .ext.utils import PublicIP
 
 available_providers = [
     "hetzner",
