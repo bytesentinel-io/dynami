@@ -119,7 +119,7 @@ class DynamiCLI:
             f.close()
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(title="Configuration", description="Configuration options", dest="sub")
 
@@ -181,3 +181,6 @@ if __name__ == "__main__":
                     cli.delete_config()
                 case "set":
                     print("config", "set", args.config, args.config_set_attribute, args.config_set_value)
+
+if __name__ == "__main__":
+    main()

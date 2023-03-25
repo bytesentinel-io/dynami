@@ -7,7 +7,7 @@ SRC_DIR = "src/python"
 
 setup(
     name="dynami",
-    version="1.0.3",
+    version="1.0.4",
     author="ByteSentinel",
     author_email="info@bytesentinel.io",
     description="Module to dynamically update DNS records from multiple services like Hetzner, Amazon, Microsoft... ",
@@ -19,6 +19,9 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    entry_points={
+        "console_scripts": ['dynami=dynami.dynami:main']
+    },
     python_requires=">=3.7",
     package_dir={"": SRC_DIR},
     packages=find_packages(SRC_DIR),
