@@ -8,13 +8,13 @@ class ConfigControl:
         self.config = json.load(open(self.config_path, "r"))
 
     def save(self, value: dict = None) -> None:
-        if value is not None:
+        if value is None:
             with open(self.config_path, "w") as f:
-                f.write(json.dumps(value))
+                f.write(json.dumps(self.config))
                 f.close()
         else:
             with open(self.config_path, "w") as f:
-                f.write(json.dumps(self.config))
+                f.write(json.dumps(value))
                 f.close()
 
     def set(self, attribute: str, value: str) -> dict:
