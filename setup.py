@@ -7,7 +7,7 @@ SRC_DIR = "src/python"
 
 setup(
     name="dynami",
-    version="1.0.4",
+    version="1.0.5",
     author="ByteSentinel",
     author_email="info@bytesentinel.io",
     description="Module to dynamically update DNS records from multiple services like Hetzner, Amazon, Microsoft... ",
