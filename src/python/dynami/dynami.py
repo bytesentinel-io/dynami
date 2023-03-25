@@ -43,10 +43,18 @@ class DynamiCLI:
             if not os.path.exists(__path):
                 os.mkdir(__path)
 
+    def check_config(self) -> bool:
+        if os.path.exists(self.__config_path):
+            return True
+        else:
+            return False
+
     def set_attr_config(self, attribute: str, value: str) -> dict:
         pass
 
     def create_config(self, provider: str) -> dict:
+        if self.check_config():
+            raise Exception("❌ Config already exists!")
         config = {}
         config["name"] = self.__name
         config["provider"] = provider
@@ -65,6 +73,29 @@ class DynamiCLI:
         if config["type"] not in available_record_types:
             raise Exception("❌ Record type not available!")
         self.__config = config
+        self.save()
+        print(f"✅ Config successfully saved! You can find it under ~/.dynami/config/{self.__name}.json")
+
+    def update_config(self) -> None:
+        config = self.read()
+        config["provider"] = input("Provider: ")
+        if config["provider"] not in available_providers:
+            raise Exception("❌ Provider not available!")
+        key_type = input("Key: ")
+        # Check if key is a path
+        config["key"] = {}
+        if os.path.exists(key_type):
+            config["key"]["type"] = "file"
+        else:
+            config["key"]["type"] = "token"
+        config["key"]["value"] = key_type
+        config["domain"] = input("Domain: ")
+        config["type"] = input("Type: ")
+        if config["type"] not in available_record_types:
+            raise Exception("❌ Record type not available!")
+        self.__config = config
+        self.save()
+        print("✅ Config successfully updated!")
         
     def delete_config(self) -> None:
         if os.path.exists(self.__config_path):
@@ -73,11 +104,19 @@ class DynamiCLI:
         else:
             print("❌ Config not found!")
 
+    def read(self) -> dict:
+        if os.path.exists(self.__config_path):
+            with open(self.__config_path, "r") as f:
+                self.__config = json.load(f)
+                f.close()
+            return self.__config
+        else:
+            raise Exception("❌ Config not found!")
+
     def save(self) -> None:
         with open(self.__config_path, "w") as f:
             f.write(json.dumps(self.__config))
             f.close()
-        print(f"✅ Config successfully saved! You can find it under ~/.dynami/config/{self.__name}.json")
 
 
 if __name__ == "__main__":
@@ -111,6 +150,11 @@ if __name__ == "__main__":
     config_delete_group = config_delete.add_argument_group("config_delete")
     config_delete_group.add_argument("-n", "--name", help="Name of the configuration", type=str, metavar="CONFIG", dest="config")
 
+    # Config: Delete
+    config_delete = config_sub.add_parser("update", help="Update a configuration")
+    config_delete_group = config_delete.add_argument_group("config_update")
+    config_delete_group.add_argument("-n", "--name", help="Name of the configuration", type=str, metavar="CONFIG", dest="config")
+
     # Config: Set attribute
     config_set = config_sub.add_parser("set", help="Set an attribute of a configuration")
     config_set_group = config_set.add_argument_group("config_set")
@@ -131,7 +175,8 @@ if __name__ == "__main__":
             match args.config_parser:
                 case "create":
                     cli.create_config(provider=args.provider)
-                    cli.save()
+                case "update":
+                    cli.update_config()
                 case "delete":
                     cli.delete_config()
                 case "set":
