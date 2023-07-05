@@ -21,7 +21,7 @@ class Hetzner:
             "name": record,
             "zone_id": self.zone_id
         })
-        result = requests.post(url, headers=self.headers, data=data)
+        result = requests.post(url, headers=self.headers, data=data).json()
         return result
 
     def update_record(self, value: str, type: str, record: str) -> dict:
@@ -35,7 +35,7 @@ class Hetzner:
             "name": record,
             "zone_id": self.zone_id
         })
-        result = requests.put(url, headers=self.headers, data=data)
+        result = requests.put(url, headers=self.headers, data=data).json()
         return result
 
     def get_zone_id(self, zone: str) -> str:
